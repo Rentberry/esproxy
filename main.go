@@ -4,15 +4,16 @@ import (
 	"bufio"
 	"encoding/json"
 	"errors"
-	"github.com/kelseyhightower/envconfig"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/sirupsen/logrus"
 	"io"
 	"log"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
 	"time"
+
+	"github.com/kelseyhightower/envconfig"
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/sirupsen/logrus"
 
 	"github.com/gorilla/mux"
 )

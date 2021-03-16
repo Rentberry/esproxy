@@ -4,9 +4,9 @@ tasks:
     dir: "{{.Root}}"
     command:
       - go fmt -x ./...
-      - gofmt -s -w **/*.go
-      - goimports -v -local github.com/taskctl/taskctl -w -format-only $(ls -d internal/**/*.go)
+      - gofmt -s -w *.go
+      - goimports -v -local github.com/rentberry/esproxy -w -format-only $(ls *.go)
         
   serve:
-    commands:
+    command:
       - go run main.go

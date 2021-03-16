@@ -5,11 +5,12 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"sync"
+	"time"
+
 	"github.com/elastic/go-elasticsearch/v6"
 	"github.com/elastic/go-elasticsearch/v6/esutil"
 	"github.com/sirupsen/logrus"
-	"sync"
-	"time"
 )
 
 const FlushBytes = 4 * 1 << 20
