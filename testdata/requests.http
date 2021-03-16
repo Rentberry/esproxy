@@ -1,0 +1,36 @@
+### Delete test
+DELETE 127.0.0.1:9200/test
+
+### Create index
+PUT 127.0.0.1:9200/test
+
+{
+    "settings" : {
+        "number_of_shards" : 1
+    },
+    "mappings" : {
+        "_doc" : {
+            "properties" : {
+                "field1" : { "type" : "text" }
+            }
+        }
+    }
+}
+
+###
+POST 127.0.0.1:19200/_bulk
+
+{ "index" : { "_index" : "test", "_type" : "default", "_id" : "1" } }
+{ "field1" : "value1" }
+{ "update" : { "_index" : "test", "_type" : "default", "_id" : "1" } }
+{ "doc": { "field1" : "value2" } }
+
+###
+POST 127.0.0.1:19200/_bulk
+
+{ "index" : { "_index" : "test", "_type" : "default", "_id" : "2" } }
+{ "field1" : "value3" }
+{ "delete" : { "_index" : "test", "_type" : "default", "_id" : "2" } }
+
+###
+GET 127.0.0.1:8080/metrics

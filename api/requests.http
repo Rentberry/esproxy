@@ -1,0 +1,20 @@
+PUT 127.0.0.1:19200/test/_doc/123
+Content-Type: application/json
+
+"test"
+
+###
+POST 127.0.0.1:19200/_cat/indices
+Content-Type: application/json
+
+"test"
+
+
+###
+POST 127.0.0.1:19200/_bulk
+Content-Type: application/x-ndjson
+
+< bulk.ndjson
+
+###
+GET 127.0.0.1:9090/metrics
